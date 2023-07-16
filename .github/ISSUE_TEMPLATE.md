@@ -1,7 +1,7 @@
 ---
 title: "Release {{ env.VERSION }}"
 labels: RELEASE
-assignees: bernizhel
+assignees: stasmasorov
 ---
 
 ## Release info
