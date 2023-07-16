@@ -8,8 +8,8 @@
 
 ### Common workflow
 
-- `git clone https://github.com/bernizhel/infrastructure`
-- `cd infrastructure`
+- `git clone https://github.com/StasMasorov/unit-demo-cra.git`
+- `cd unit-demo-cra`
 - `git checkout -b "your branch name"`
 - `npm ci` or `npm install` (will run prepare npm script hook too)
 - Do some changes
