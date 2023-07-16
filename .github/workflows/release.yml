@@ -16,11 +16,8 @@ jobs:
   release:
     name: Release and issue
     needs:
-      - unit-tests
+      - tests
       - integration-tests
-      - eslint
-      - prettier
-      - commitlint
     runs-on: ubuntu-latest
     defaults:
       run:
