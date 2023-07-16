@@ -3,6 +3,7 @@ name: Release
 on:
   push:
     tags: ['v*']
+    branches: ['release-v*']
   workflow_dispatch:
 
 jobs:
@@ -50,6 +51,15 @@ jobs:
           release-name: ${{ github.ref_name }}
           semver: false
 
+        - if: contains(github.ref, 'tags')
+        name: Create release branch if new tag is pushed
+        uses: peterjgrainger/action-create-branch@v2.2.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          branch: 'release-${{ github.ref_name }}'
+          sha: '${{ github.event.push.head.sha }}'
+
       - if: success()
         name: Create release issue or update existing one
         id: create-issue
@@ -64,6 +74,7 @@ jobs:
           filename: ./.github/ISSUE_TEMPLATE.md
           update_existing: true
           search_existing: all
+
 
       - name: Add test results link
         uses: peter-evans/create-or-update-comment@v3
