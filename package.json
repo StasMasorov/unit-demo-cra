@@ -26,23 +26,19 @@
         "web-vitals": "^1.1.2"
     },
     "scripts": {
+        "prepare": "husky install",
         "start": "react-scripts start",
         "build": "react-scripts build",
+        "build:test": "PUBLIC_URL='/build/' react-scripts build",
         "eject": "react-scripts eject",
         "test": "react-scripts test",
         "e2e": "playwright test --project=chromium && playwright show-report",
-        "test-ci": "CI=true npm test -- --reporters=\"default\" --reporters=\"jest-html-reporter\" --reporters=\"jest-teamcity\""
-    },
-    "eslintConfig": {
-        "extends": [
-            "react-app",
-            "react-app/jest"
-        ],
-        "rules": {
-            "testing-library/prefer-screen-queries": "off",
-            "testing-library/no-debugging-utils": "off",
-            "@typescript-eslint/no-unused-vars": "off"
-        }
+        "e2e:ci": "CI=true playwright test --project=chromium",
+        "test:ci": "CI=true npm test -- --reporters=\"default\" --reporters=\"jest-html-reporter\" --reporters=\"jest-teamcity\"",
+        "lint:check": "eslint '**/*.{js,jsx,ts,tsx}'",
+        "lint:fix": "eslint --fix '**/*.{js,jsx,ts,tsx}'",
+        "format:check": "prettier --check '**/*.{js,jsx,ts,tsx}'",
+        "format:fix": "prettier --write '**/*.{js,jsx,ts,tsx}'"
     },
     "browserslist": {
         "production": [
@@ -61,7 +57,9 @@
         "@commitlint/config-conventional": "^17.6.6",
         "@playwright/test": "^1.28.0",
         "@types/react-helmet": "^6.1.5",
+        "eslint": "^8.44.0",
         "husky": "^8.0.3",
-        "jest-html-reporter": "^3.7.0"
+        "jest-html-reporter": "^3.7.0",
+        "prettier": "^3.0.0"
     }
 }
