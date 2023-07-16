@@ -61,7 +61,7 @@ jobs:
       - name: Run `lint:check` npm script
         run: npm run lint:check
 
-  eslint:
+  prettier:
     name: Prettier
     runs-on: ubuntu-latest
     defaults:
