@@ -82,7 +82,7 @@ jobs:
     name: Build and deploy
     needs: release
     env:
-      PUBLIC_URL: https://bernizhel.github.io/infrastructure/
+      PUBLIC_URL: https://stasmasorov.github.io/unit-demo-cra/
     steps:
       - uses: actions/checkout@v3
         with:
